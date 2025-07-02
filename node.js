@@ -1,7 +1,6 @@
 let i = '', senhaGerada = '', randomizadorSenha = '', randomizadorSecundario = '';
 const caracteresUsados = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
-
 let quote = 'Voce gostaria de uma senha com numeros e letras repetidas?';
 const answer = require('readline');
 const rl = answer.createInterface ({
