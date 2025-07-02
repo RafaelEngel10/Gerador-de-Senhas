@@ -3,47 +3,32 @@ const caracteresUsados = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01
 
 
 let quote = 'Voce gostaria de uma senha com numeros e letras repetidas?';
-console.log(quote);
-let lineReader = require('lineReader');
-
-const rl = lineReader.createInterface ({
+const answer = require('readline');
+const rl = answer.createInterface ({
     input: process.stdin,
     output: process.stdout
 });
 
-rl.question('quote', (answer) => {
-    console.log('Certo, sua resposta foi registrada!');
-    rl.close();
-});
-
-if (answer=='Sim' || answer=='sim') {
-    function gerarSenhaCondicionada(tamanho) {
-        senhaGerada = '';
-        for (i=0;i<tamanho;i++) {
-            randomizadorSenha = Math.floor(Math.random()*caracteresUsados.length);
-            senhaGerada += caracteresUsados[randomizadorSenha];
-        }
-        for (i=0;i<tamanho;i++) {
-            randomizadorSecundario = Math.floor(Math.random()*caracteresUsados.length/2);
-            senhaGerada += caracteresUsados[randomizadorSecundario];
-        }
-
+function gerarSenha(tamanho) {
+    senhaGerada = '';
+    for (i=0; i<tamanho;i++) {
+        randomizadorSenha = Math.floor(Math.random()*caracteresUsados.length);
+        senhaGerada += caracteresUsados[randomizadorSenha];
     }
-    return senhaGerada;
-} else {
-    function gerarSenha(tamanho) {
-        senhaGerada = '';
-        for (i=0; i<tamanho;i++) {
-            randomizadorSenha = Math.floor(Math.random()*caracteresUsados.length);
-            senhaGerada += caracteresUsados[randomizadorSenha];
-        }
-        for (i=0;i<tamanho;i++) {
-            randomizadorSecundario = Math.floor(Math.random()*caracteresUsados.length/2);
-            senhaGerada += caracteresUsados[randomizadorSecundario];
-        }
-        return senhaGerada;
+    for (i=0;i<tamanho;i++) {
+        randomizadorSecundario = Math.floor(Math.random()*caracteresUsados.length/2);
+        senhaGerada += caracteresUsados[randomizadorSecundario];
     }
+    return senhaGerada
 }
 
-
-console.log(gerarSenha(10));
+rl.question("Quantos caracteres a senha deve ter? ", (input) => {
+  const tamanho = parseInt(input);
+  if (!isNaN(tamanho) && tamanho>0) {
+    const senha = gerarSenha(tamanho);
+    console.log(`Sua senha gerada e: ${senha}`);
+  } else {
+    console.log("Por favor, insira um numero valido maior que zero.");
+  }
+  rl.close();
+});
