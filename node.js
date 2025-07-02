@@ -30,7 +30,6 @@ if (answer=='Sim' || answer=='sim') {
 
     }
     return senhaGerada;
-    console.log(senhaGerada(10));
 } else {
     function gerarSenha(tamanho) {
         senhaGerada = '';
