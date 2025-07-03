@@ -1,4 +1,4 @@
-let i = '', senhaGerada = '', randomizadorSenha = '';                                                   //variáveis a serem usadas
+let i = '', senhaGerada = '', randomizadorSenha = '';                                                   //variáveis a serem usadas inicializadas com nada
 const caracteresUsados = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&§¢£';        //constante de caracteres para criação de senha
 
 let quote = 'Voce gostaria de uma senha com numeros e letras repetidas?';                               //variável armazenando string para pergunta
