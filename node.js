@@ -11,7 +11,7 @@ const rl = answer.createInterface ({
 function gerarSenha(tamanho) {
     senhaGerada = '';
     for (i=0; i<tamanho;i++) {
-        randomizadorSenha = Math.floor(Math.random()*caracteresUsados.length/tamanho);
+        randomizadorSenha = Math.floor(Math.random()*caracteresUsados.length);
         senhaGerada += caracteresUsados[randomizadorSenha];
     }
     return senhaGerada;
