@@ -22,7 +22,7 @@ rl.question("Qual seu nome? ", (nome) => {                                      
     if (nome) {                                                                         //se a variável tiver armazenando algo, será executado os comandos a baixo
         if (horaAtual>=6 && horaAtual<12) {
             console.log('Bom dia! ' + nome);
-        } else if (horaAtual>=12 && horaAtual<18) {
+        } else if (horaAtual>=12 && horaAtual<18) {                                      //cumprimento da máquina para o usuário
             console.log('Boa tarde! ' + nome);
         } else {
             console.log('Boa noite! ' + nome);
