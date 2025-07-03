@@ -32,13 +32,13 @@ rl.question("Qual seu nome? ", (nome) => {                                      
             exibirMenu(nome);
         } 
         function exibirMenu(nome) {
-        console.log('========Funcionalidades==========');
-        console.log('===== 1. Gerador de Senhas  =====');
-        console.log('===== 2.                    =====');
-        console.log('===== 3.                    =====');
-        console.log('===== 4.                    =====');
-        console.log('===== 5.        Sair        =====');
-        console.log('=================================');
+        console.log('========= Funcionalidades ===========');
+        console.log('====== 1. Gerador de Senhas    ======');
+        console.log('====== 2.                      ======');
+        console.log('====== 3.                      ======');
+        console.log('====== 4.                      ======');
+        console.log('====== 5. Sair                 ======');
+        console.log('=====================================');
         rl.question("Opção: ", (OP) => {
             switch (parseInt(OP)) {
                 case 1: 
