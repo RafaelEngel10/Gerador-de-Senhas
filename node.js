@@ -1,4 +1,5 @@
 let i = '', senhaGerada = '', randomizadorSenha = '';                                                   //variáveis a serem usadas inicializadas com nada
+
 const caracteresUsados = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@!#$%&§?';        //constante de caracteres para criação de senha
 
 var horaAtual = new Date().getHours();                                                             //pra pegar as horas atuais
@@ -22,23 +23,50 @@ rl.question("Qual seu nome? ", (nome) => {                                      
     if (nome) {                                                                         //se a variável tiver armazenando algo, será executado os comandos a baixo
         if (horaAtual>=6 && horaAtual<12) {
             console.log('Bom dia! ' + nome);
+            exibirMenu(nome);
         } else if (horaAtual>=12 && horaAtual<18) {                                      //cumprimento da máquina para o usuário
             console.log('Boa tarde! ' + nome);
+            exibirMenu(nome);
         } else {
             console.log('Boa noite! ' + nome);
+            exibirMenu(nome);
+        } 
+        function exibirMenu(nome) {
+        console.log('========Funcionalidades==========');
+        console.log('===== 1. Gerador de Senhas  =====');
+        console.log('===== 2.                    =====');
+        console.log('===== 3.                    =====');
+        console.log('===== 4.                    =====');
+        console.log('===== 5.        Sair        =====');
+        console.log('=================================');
+        rl.question("Opção: ", (OP) => {
+            switch (parseInt(OP)) {
+                case 1: 
+                    rl.question("Quantos caracteres a senha deve ter? ", (input) => {              //função question e output para fazer a pergunta, input para entrada de dados
+                    const tamanho = parseInt(input);                                                 //constante de tamanho atribuida a função parseInt que transforma a string em um numero
+                    if (!isNaN(tamanho) && tamanho>0) {       
+                        senhaGerada = gerarSenha(tamanho);                                            //tive que chamar a função de volta                                    
+                        console.log(`Sua senha gerada e: ${senhaGerada}`);                            //mostra a senha no terminal
+                    } else {
+                        console.log("Por favor, insira um numero valido maior que zero.");            //caso o usuário seja engraçadinho e bote -20 caracteres
+                    }
+                    exibirMenu(nome);
+                    });
+                    break;
+
+                case 2:
+                    break;
+                
+                case 5:
+                    console.log("Até mais!");
+                    rl.close();
+                    break;
+                default:
+                    console.log("Digite um número válido!");
+                    exibirMenu();
+            }
+        });
         }
     }
-    rl.question("Quantos caracteres a senha deve ter? ", (input) => {                      //função question e output para fazer a pergunta, input para entrada de dados
-        const tamanho = parseInt(input);                                                 //constante de tamanho atribuida a função parseInt que transforma a string em um numero
-        if (!isNaN(tamanho) && tamanho>0) {       
-            senhaGerada = gerarSenha(tamanho);                                            //tive que chamar a função de volta                                    
-            console.log(`Sua senha gerada e: ${senhaGerada}`);                            //mostra a senha no terminal
-        } else {
-            console.log("Por favor, insira um numero valido maior que zero.");            //caso o usuário seja engraçadinho e bote -20 caracteres
-        }
-        rl.close();
-    });
 });
-
-
 
